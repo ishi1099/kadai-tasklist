@@ -38,12 +38,12 @@ public class IndexServlet extends HttpServlet {
 
     List<Task> tasks = em.createNamedQuery("getAllTasks", Task.class)
                                .getResultList();
-    response.getWriter().append(Integer.valueOf(tasks.size()).toString());
+
     em.close();
 
     request.setAttribute("tasks", tasks);
 
-    RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/messages/index.jsp");
+    RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/index.jsp");
     rd.forward(request, response);
 
     }
